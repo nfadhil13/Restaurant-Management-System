@@ -262,211 +262,211 @@ public class WelcomeMenuController implements Serializable {
 	}
 
 	
-	/*
-	 * METHOD TO ADD TABLES
-	 */
-		public void addTable() {
-			System.out.print("Please Enter the number of seats: ");
-			int numberOfSeats = input.nextInt();
-		
-			tableNum++;
-			Table nt=new Table(tableNum,numberOfSeats);
-			
-			nt.next=headTable;
-			headTable=nt;			
-		}
-
-		/*
-		 * METHOD TO VIEW TABLES ADDED
-		 */
-		public void viewTables() {
-			Table temp=headTable;
-			System.out.print("Table Details"+" \n ");
-			while(temp!=null){
-				System.out.print("\t"+"Table No. "+temp.getTableNumber()+", Seats "+temp.getNumberOfSeats()+ " \n ");
-				temp=temp.next;
-			}
-		}
-		
-		
-		
-		 /*
-		  * METHOD TO DELETE A TABLE
-		  */
-		
-		 /*
-		 public void deleteTable(int number) {
-			Table temp3=headTable,temp4=null;
-			
-			while(temp3!=null && !temp3. .equals(number)) { 
-				temp4=temp3;
-				temp3 = temp3.next;
-			}
-			
-			if(temp3!=null) { //found it
-			
-				if(temp4!=null) temp4.next=temp3.next; //not at the head
-				else headTable=headTable.next; //delete the head
-				System.out.println("Table Number "+number+" deleted.");
-			}
-			else {//not found
-				System.out.println("Table Number "+number+" not found.");
-			} 
-
-			}
-			*/
-		
-		/*
-		 * METHOD TO ADD BOOKINGS 
-		 */
-		 public void addBooking() {
-			System.out.print("Please Enter your Name: ");
-			String customerName = input.nextLine();
-			customerName = input.nextLine();
-			System.out.print("Number of People booking: ");
-			int numberOfPplBooking= input.nextInt();
-			System.out.print("Table Number being booked: ");
-			int tableNumberBooked = input.nextInt();
-			System.out.print("Time of Booking: ");
-			int bookingTime = input.nextInt();
-			System.out.print("The Amount of time (in hours) the booking is for: ");
-			int amountOfTimeBooking = input.nextInt();
-			
-			bookingNum++;
-			Booking nb=new Booking(bookingNum,customerName,numberOfPplBooking,tableNumberBooked,bookingTime,amountOfTimeBooking);
-			
-			nb.next=firstBooking;
-			firstBooking=nb;
-		 }
-
-			 public void viewBookings() {
-					Booking temp2=firstBooking;
-					System.out.println("Booking Details:"+" \n ");
-					while(temp2!=null){
-						//process Booking here....
-						System.out.println("Booking Details: "+" \n " + 
-						"\t"+"Booking No.: "+temp2.getbookingNumber() +" \n " +
-						"\t" + "Customer Name: "+temp2.getCustomerName()+" \n " +
-						"\t" + "Number of People Booking: "+temp2.getNumberOfPplBooking()+" \n " +
-						"\t" + "Table Number Booked: "+temp2.getTableNumberBooked()+" \n " +
-						"\t" + "Booking Time: "+temp2.getBookingTime()+" \n " +
-						"\t" + "The Amount of time (in hours) the booking is for: "+temp2.getAmountOfTimeBooking());
-			 			temp2=temp2.next;
-					}
-			}
-			 
-			 /*
-			  * METHOD TO DELETE BOOKING
-			  */
-			 public void deleteBookings(String name) {
-					Booking temp3=firstBooking,temp4=null;
-					
-					
-					
-					while(temp3!=null && !temp3.customerName.equals(name)) { 
-						temp4=temp3;
-						temp3 = temp3.next;
-					}
-					
-					if(temp3!=null) { //found it
-					
-						if(temp4!=null) temp4.next=temp3.next; //not at the head
-						else firstBooking=firstBooking.next; //delete the head
-						System.out.println("Item "+name+" deleted.");
-					}
-					else {//not found
-						System.out.println("Item "+name+" not found.");
-					} 
-
-					}
-			
-/*
- * !!! HERE I WILL CREATE MY SEARCH ALGORITHM!!!
- * 
- * 
- * /*
-			public void SEARCH(int index) {
-				if (!(index > (numberOfMembers() - 1) || index < 0))
-					members.remove(index);
-			}
-			*/
-			 
-			/*
-			 * METHOD TO ADD FOOD/DRINK ADDED
-			 */
-			public void addNewFoodAndDrinkItem() {	
-				
-				System.out.print("Please Enter Food/Drink Item: "+ " \n ");
-				String fdMenuItem = input.nextLine();
-				fdMenuItem = input.nextLine();
-				System.out.print("Please Enter Price: "+ " \n ");
-				double itemPrice= input.nextInt();
-				addNewFoodAndDrinkItem(fdMenuItem,itemPrice);
-			}
-	
-			
-			//Method for number iterating through the foodMenu when a food has been added!
-			public void addNewFoodAndDrinkItem(String fdMenuItem, double itemPrice) {	
-				fdMenuNum++;
-				FoodDrinkMenu nf=new FoodDrinkMenu(fdMenuNum,fdMenuItem,itemPrice);
-					
-				//head insertion
-				//nf.next=firstFdItem;
-				//firstFdItem=nf;
-				
-				//tail insertion
-				if(firstFdItem!=null) {
-					fdm = firstFdItem; 
-					while(fdm.next!=null) fdm=fdm.next;
-					fdm.next=nf;
-				}
-				else firstFdItem=nf;
-				
-			}
-			
-			/*
-			 * METHOD TO VIEW FOOD/DRINK ADDED
-			 */
-			
-			public void viewFoodItems() {
-				// int number=1;
-				fdm = firstFdItem; 
-				System.out.println("FoodDrink Item Details: \n========================\n");
-				while(fdm!=null){
-					
-					System.out.println("Number: "+ fdm.getFoodMenuNumber() +""+" \n " +
-							"\t" + "Item Name: "+fdm.getFdMenuItem()+" \n " +
-							"\t" + "Item Cost Cost.: "+fdm.getItemPrice());
-					
-					fdm=fdm.next;
-					//number++;
-				}	
-	
-		}
-			
-			/*
-			 * METHOD TO DELETE A FOOD/DRINK
-			 */
-			
-			public void deleteFoodItems(String item) {
-				FoodDrinkMenu temp1=firstFdItem,temp2=null;
-				
-				while(temp1!=null && !temp1.getFdMenuItem().equals(item)) { 
-					temp2=temp1;
-					temp1 = temp1.next;
-				}
-				
-				if(temp1!=null) { //found it
-				
-					if(temp2!=null) temp2.next=temp1.next; //not at the head
-					else firstFdItem=firstFdItem.next; //delete the head
-					System.out.println("Item "+item+" deleted.");
-				}
-				else {//not found
-					System.out.println("Item "+item+" not found.");
-				} 
-
-				}	
+//	/*
+//	 * METHOD TO ADD TABLES
+//	 */
+//		public void addTable() {
+//			System.out.print("Please Enter the number of seats: ");
+//			int numberOfSeats = input.nextInt();
+//
+//			tableNum++;
+//			Table nt=new Table(tableNum,numberOfSeats);
+//
+//			nt.next=headTable;
+//			headTable=nt;
+//		}
+//
+//		/*
+//		 * METHOD TO VIEW TABLES ADDED
+//		 */
+//		public void viewTables() {
+//			Table temp=headTable;
+//			System.out.print("Table Details"+" \n ");
+//			while(temp!=null){
+//				System.out.print("\t"+"Table No. "+temp.getTableNumber()+", Seats "+temp.getNumberOfSeats()+ " \n ");
+//				temp=temp.next;
+//			}
+//		}
+//
+//
+//
+//		 /*
+//		  * METHOD TO DELETE A TABLE
+//		  */
+//
+//		 /*
+//		 public void deleteTable(int number) {
+//			Table temp3=headTable,temp4=null;
+//
+//			while(temp3!=null && !temp3. .equals(number)) {
+//				temp4=temp3;
+//				temp3 = temp3.next;
+//			}
+//
+//			if(temp3!=null) { //found it
+//
+//				if(temp4!=null) temp4.next=temp3.next; //not at the head
+//				else headTable=headTable.next; //delete the head
+//				System.out.println("Table Number "+number+" deleted.");
+//			}
+//			else {//not found
+//				System.out.println("Table Number "+number+" not found.");
+//			}
+//
+//			}
+//			*/
+//
+//		/*
+//		 * METHOD TO ADD BOOKINGS
+//		 */
+//		 public void addBooking() {
+//			System.out.print("Please Enter your Name: ");
+//			String customerName = input.nextLine();
+//			customerName = input.nextLine();
+//			System.out.print("Number of People booking: ");
+//			int numberOfPplBooking= input.nextInt();
+//			System.out.print("Table Number being booked: ");
+//			int tableNumberBooked = input.nextInt();
+//			System.out.print("Time of Booking: ");
+//			int bookingTime = input.nextInt();
+//			System.out.print("The Amount of time (in hours) the booking is for: ");
+//			int amountOfTimeBooking = input.nextInt();
+//
+//			bookingNum++;
+//			Booking nb=new Booking(bookingNum,customerName,numberOfPplBooking,tableNumberBooked,bookingTime,amountOfTimeBooking);
+//
+//			nb.next=firstBooking;
+//			firstBooking=nb;
+//		 }
+//
+//			 public void viewBookings() {
+//					Booking temp2=firstBooking;
+//					System.out.println("Booking Details:"+" \n ");
+//					while(temp2!=null){
+//						//process Booking here....
+//						System.out.println("Booking Details: "+" \n " +
+//						"\t"+"Booking No.: "+temp2.getbookingNumber() +" \n " +
+//						"\t" + "Customer Name: "+temp2.getCustomerName()+" \n " +
+//						"\t" + "Number of People Booking: "+temp2.getNumberOfPplBooking()+" \n " +
+//						"\t" + "Table Number Booked: "+temp2.getTableNumberBooked()+" \n " +
+//						"\t" + "Booking Time: "+temp2.getBookingTime()+" \n " +
+//						"\t" + "The Amount of time (in hours) the booking is for: "+temp2.getAmountOfTimeBooking());
+//			 			temp2=temp2.next;
+//					}
+//			}
+//
+//			 /*
+//			  * METHOD TO DELETE BOOKING
+//			  */
+//			 public void deleteBookings(String name) {
+//					Booking temp3=firstBooking,temp4=null;
+//
+//
+//
+//					while(temp3!=null && !temp3.customerName.equals(name)) {
+//						temp4=temp3;
+//						temp3 = temp3.next;
+//					}
+//
+//					if(temp3!=null) { //found it
+//
+//						if(temp4!=null) temp4.next=temp3.next; //not at the head
+//						else firstBooking=firstBooking.next; //delete the head
+//						System.out.println("Item "+name+" deleted.");
+//					}
+//					else {//not found
+//						System.out.println("Item "+name+" not found.");
+//					}
+//
+//					}
+//
+///*
+// * !!! HERE I WILL CREATE MY SEARCH ALGORITHM!!!
+// *
+// *
+// * /*
+//			public void SEARCH(int index) {
+//				if (!(index > (numberOfMembers() - 1) || index < 0))
+//					members.remove(index);
+//			}
+//			*/
+//
+//			/*
+//			 * METHOD TO ADD FOOD/DRINK ADDED
+//			 */
+//			public void addNewFoodAndDrinkItem() {
+//
+//				System.out.print("Please Enter Food/Drink Item: "+ " \n ");
+//				String fdMenuItem = input.nextLine();
+//				fdMenuItem = input.nextLine();
+//				System.out.print("Please Enter Price: "+ " \n ");
+//				double itemPrice= input.nextInt();
+//				addNewFoodAndDrinkItem(fdMenuItem,itemPrice);
+//			}
+//
+//
+//			//Method for number iterating through the foodMenu when a food has been added!
+//			public void addNewFoodAndDrinkItem(String fdMenuItem, double itemPrice) {
+//				fdMenuNum++;
+//				FoodDrinkMenu nf=new FoodDrinkMenu(fdMenuNum,fdMenuItem,itemPrice);
+//
+//				//head insertion
+//				//nf.next=firstFdItem;
+//				//firstFdItem=nf;
+//
+//				//tail insertion
+//				if(firstFdItem!=null) {
+//					fdm = firstFdItem;
+//					while(fdm.next!=null) fdm=fdm.next;
+//					fdm.next=nf;
+//				}
+//				else firstFdItem=nf;
+//
+//			}
+//
+//			/*
+//			 * METHOD TO VIEW FOOD/DRINK ADDED
+//			 */
+//
+//			public void viewFoodItems() {
+//				// int number=1;
+//				fdm = firstFdItem;
+//				System.out.println("FoodDrink Item Details: \n========================\n");
+//				while(fdm!=null){
+//
+//					System.out.println("Number: "+ fdm.getFoodMenuNumber() +""+" \n " +
+//							"\t" + "Item Name: "+fdm.getFdMenuItem()+" \n " +
+//							"\t" + "Item Cost Cost.: "+fdm.getItemPrice());
+//
+//					fdm=fdm.next;
+//					//number++;
+//				}
+//
+//		}
+//
+//			/*
+//			 * METHOD TO DELETE A FOOD/DRINK
+//			 */
+//
+//			public void deleteFoodItems(String item) {
+//				FoodDrinkMenu temp1=firstFdItem,temp2=null;
+//
+//				while(temp1!=null && !temp1.getFdMenuItem().equals(item)) {
+//					temp2=temp1;
+//					temp1 = temp1.next;
+//				}
+//
+//				if(temp1!=null) { //found it
+//
+//					if(temp2!=null) temp2.next=temp1.next; //not at the head
+//					else firstFdItem=firstFdItem.next; //delete the head
+//					System.out.println("Item "+item+" deleted.");
+//				}
+//				else {//not found
+//					System.out.println("Item "+item+" not found.");
+//				}
+//
+//				}
 			
 			
 			
