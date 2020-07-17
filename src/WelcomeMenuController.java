@@ -8,7 +8,9 @@ import java.util.Scanner;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
-
+import controller.BookingController;
+import controller.FoodDrinkController;
+import controller.TableController;
 
 
 public class WelcomeMenuController implements Serializable {
@@ -17,7 +19,7 @@ public class WelcomeMenuController implements Serializable {
 	
 	//private Booking booking;
 	public Table headTable=null;
-	
+	private int b;
 	private int tableNum=0;
     private Booking firstBooking=null;
     private int bookingNum=0;
@@ -27,6 +29,9 @@ public class WelcomeMenuController implements Serializable {
     //private int number=1;
     //private Purchase firstPurchase = null; //NO....
     private int purchase=0;
+    private BookingController bookingController;
+    private TableController tableController;
+    private FoodDrinkController foodDrinkController;
 
 	private FoodDrinkMenu fdm;
  
@@ -44,20 +49,20 @@ public class WelcomeMenuController implements Serializable {
    */
 	
 	public static void main(String[] args) {
-
-		
 		//WelcomeMenuController app;
 		WelcomeMenuController app = new WelcomeMenuController();
+		app.init();
 		app.runMenu();
-		
-		try {
-			app = WelcomeMenuController.load();
-			app.runMenu();
-			
-		} catch (Exception e) {
-			app = new WelcomeMenuController();
-			app.runMenu();
-		}
+
+
+//		try {
+//			app = WelcomeMenuController.load();
+//			app.runMenu();
+//
+//		} catch (Exception e) {
+//			app = new WelcomeMenuController();
+//			app.runMenu();
+//		}
 		
 		//app.initForTesting(); //for testing only
 		
@@ -69,6 +74,12 @@ public class WelcomeMenuController implements Serializable {
 		  
 		  
 		 */
+	}
+
+	private void init() {
+		this.bookingController = new BookingController();
+		this.tableController = new TableController();
+		this.foodDrinkController = new FoodDrinkController();
 	}
 
 	
@@ -128,34 +139,32 @@ public class WelcomeMenuController implements Serializable {
 
 			switch (option) {
 			case 1:
-				addTable();
+				tableController.addTable();
 				break;
 			case 2:
-				viewTables();
+				tableController.printTables();
 				break;
 			/*case 3:
 				input.nextLine();
 				deleteTable(promptForInt("Enter Table Number to delete"));
 				break;*/
 			case 4 :
-				addBooking();
+				bookingController.addBooking();
 				break;
 			case 5:
-				viewBookings();
+				bookingController.printBookings();
 				break;
 			case 6:
-				input.nextLine();
-				deleteBookings(promptForString("Enter Customer Name to delete"));
+				bookingController.deleteBooking();
 				break;
 			case 7:
-				addNewFoodAndDrinkItem();
+				foodDrinkController.addFoodDrink();
 				break;
 			case 8:
-				viewFoodItems();
+				foodDrinkController.printFoodDrink();
 				break;
 			case 9:
-				input.nextLine();
-				deleteFoodItems(promptForString("Enter item to delete"));
+				foodDrinkController.deleteFoodDrink();
 				break;
 			case 10:
 				addPurchase();
@@ -229,9 +238,9 @@ public class WelcomeMenuController implements Serializable {
 	public static void save(WelcomeMenuController app) throws Exception {
 		try {
 		XStream xstream = new XStream(new DomDriver());
-	ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("WelcomeMenuBookings.xml"));
-	out.writeObject(app);
-	out.close();
+		ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("WelcomeMenuBookings.xml"));
+		out.writeObject(app);
+		out.close();
 		}catch(Exception e) {
 			System.out.println("Save error "+e.getMessage());
 		}
