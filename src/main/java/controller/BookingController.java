@@ -25,7 +25,7 @@ public class BookingController {
                 newBookingNumber = temp;
             }
         }
-        newBooking.setBookingNumber(newBookingNumber);
+        newBooking.setBookingNumber(newBookingNumber+1);
         repo.insertBooking(newBooking);
     }
 

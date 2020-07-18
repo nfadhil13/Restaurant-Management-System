@@ -11,7 +11,6 @@ public class BookingView {
         Scanner input = new Scanner(System.in);
         System.out.print("Please Enter your Name: ");
         String customerName = input.nextLine();
-        customerName = input.nextLine();
         System.out.print("Number of People booking: ");
         int numberOfPplBooking = input.nextInt();
         System.out.print("Table Number being booked: ");

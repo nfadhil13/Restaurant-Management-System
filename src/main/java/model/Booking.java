@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Booking {
     private int bookingNumber;
     private String customerName;
@@ -7,6 +10,7 @@ public class Booking {
     private int tableNumberBooked;
     private int bookingTime;
     private int amountOfTimeBooking;
+    private List<Purchase> purchases = new ArrayList<>();
 
     public Booking(int bookingNumber, String customerName, int numberOfPplBooking, int tableNumberBooked, int bookingTime, int amountOfTimeBooking) {
         this.bookingNumber = bookingNumber;
@@ -23,6 +27,14 @@ public class Booking {
         this.tableNumberBooked = tableNumberBooked;
         this.bookingTime = bookingTime;
         this.amountOfTimeBooking = amountOfTimeBooking;
+    }
+
+    public List<Purchase> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<Purchase> purchases) {
+        this.purchases = purchases;
     }
 
     public int getBookingNumber() {

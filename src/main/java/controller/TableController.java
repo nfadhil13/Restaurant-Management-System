@@ -16,8 +16,14 @@ public class TableController {
         this.repo = TableRepo.getInstance();
     }
     public void addTable(){
-        int tableNumber = repo.getAllTable().size();
-        repo.insertTable(new Table(tableNumber,view.addTable()));
+        int tableNumber = 0;
+        for(Table table : repo.getAllTable()){
+            int temp = table.getTableNumber();
+            if(temp>tableNumber){
+                tableNumber = temp;
+            }
+        }
+        repo.insertTable(new Table(tableNumber+1,view.addTable()));
     }
 
     public void printTables(){

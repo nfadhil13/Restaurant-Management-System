@@ -33,8 +33,11 @@ public class BookingRepo implements BookingDao {
 
     @Override
     public void updateBooking(int id, Booking booking) {
-        bookingList.add(id,booking);
-        bookingList.remove(id+1);
+//        for(Booking tempBooking : bookingList){
+//            if(tempBooking.getBookingNumber() == id){
+//                bookingList.remove(tempBooking);
+//            }
+//      }
     }
 
     @Override
@@ -44,6 +47,12 @@ public class BookingRepo implements BookingDao {
 
     @Override
     public Booking getBookingById(int id) {
-        return bookingList.get(id);
+        for(Booking booking : bookingList){
+            System.out.println("Booking number :" + booking.getBookingNumber() + "Id : " + id);
+            if(booking.getBookingNumber() == id){
+                return  booking;
+            }
+        }
+        return null;
     }
 }

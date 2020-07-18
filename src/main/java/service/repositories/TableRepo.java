@@ -52,7 +52,12 @@ public class TableRepo implements TableDao {
 
     @Override
     public Table getTableById(int id) {
-        return tables.get(id);
+        for(Table table : tables){
+            if(table.getTableNumber() == id){
+                return  table;
+            }
+        }
+        return null;
     }
 
 

@@ -35,8 +35,8 @@ public class FoodDrinkRepo implements FoodDrinkDao {
 
     @Override
     public void updateFoodDrink(int id, FoodDrink foodDrink) {
-        foodDrinkList.add(id,foodDrink);
-        foodDrinkList.remove(id+1);
+//        foodDrinkList.add(id,foodDrink);
+//        foodDrinkList.remove(id+1);
     }
 
     @Override
@@ -46,6 +46,11 @@ public class FoodDrinkRepo implements FoodDrinkDao {
 
     @Override
     public FoodDrink getFoodDrinkById(int id) {
-        return foodDrinkList.get(id);
+        for(FoodDrink foodDrink : foodDrinkList){
+            if(foodDrink.getFoodMenuNumber() == id){
+                return foodDrink;
+            }
+        }
+        return null;
     }
 }

@@ -24,7 +24,7 @@ public class FoodDrinkController {
                 foodDrinkNumber = number;
             }
         }
-        temp.setFoodMenuNumber(foodDrinkNumber);
+        temp.setFoodMenuNumber(foodDrinkNumber+1);
         repo.insertFoodDrink(temp);
     }
 

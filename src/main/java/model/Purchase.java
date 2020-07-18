@@ -7,6 +7,11 @@ public class Purchase {
     private int quantity;
 
 
+    public Purchase(String itemPurchased, int quantity) {
+        this.itemPurchased = itemPurchased;
+        this.quantity = quantity;
+    }
+
     public Purchase(int purchaseNumber, String itemPurchased, int quantity) {
         this.purchaseNumber = purchaseNumber;
         this.itemPurchased = itemPurchased;

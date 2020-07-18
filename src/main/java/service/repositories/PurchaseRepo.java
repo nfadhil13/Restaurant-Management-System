@@ -33,8 +33,8 @@ public class PurchaseRepo implements PurchaseDao {
 
     @Override
     public void updatePurchase(int id, Purchase purchase) {
-        purchases.add(id,purchase);
-        purchases.remove(id+1);
+//        purchases.add(id,purchase);
+//        purchases.remove(id+1);
     }
 
     @Override
@@ -44,6 +44,11 @@ public class PurchaseRepo implements PurchaseDao {
 
     @Override
     public Purchase getPurchaseById(int id) {
-        return purchases.get(id);
+        for(Purchase purchase : purchases){
+            if(purchase.getPurchaseNumber() == id){
+                return  purchase;
+            }
+        }
+        return null;
     }
 }

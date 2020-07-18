@@ -11,7 +11,6 @@ public class FoodDrinkView {
         Scanner input = new Scanner(System.in);
         System.out.print("Please Enter Food/Drink Item: "+ " \n ");
         String fdMenuItem = input.nextLine();
-        fdMenuItem = input.nextLine();
         System.out.print("Please Enter Price: "+ " \n ");
         double itemPrice= input.nextInt();
         return new FoodDrink(fdMenuItem,itemPrice);
