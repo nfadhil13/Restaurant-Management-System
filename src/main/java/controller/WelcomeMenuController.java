@@ -1,11 +1,6 @@
 package controller;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.Scanner;
 
 import model.Booking;
 import model.FoodDrink;
@@ -24,7 +19,7 @@ public class WelcomeMenuController implements Serializable {
     private int fdMenuNum=0;
 	private Purchase firstPurchase = null;
     private int purchase=0;
-    private BookingController bookingController;
+    private BookingTableController bookingController;
     private TableController tableController;
     private FoodDrinkController foodDrinkController;
     private WelcomeMenuView welcomeMenuView;
@@ -33,7 +28,7 @@ public class WelcomeMenuController implements Serializable {
 
 	public WelcomeMenuController() {
 		System.out.println("kesini");
-		this.bookingController = new BookingController();
+		this.bookingController = new BookingTableController();
 		this.tableController = new TableController();
 		this.foodDrinkController = new FoodDrinkController();
 		this.welcomeMenuView = new WelcomeMenuView();

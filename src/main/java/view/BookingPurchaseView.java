@@ -28,7 +28,7 @@ public class BookingPurchaseView {
         for(Booking booking : bookingList){
             System.out.println("Booking Details: "+"===================\n " +
                     "\t" + "Booking No.: "+booking.getBookingNumber() +" \n " +
-                    "\t" + "Table: "+booking.getTableNumberBooked()+" \n " +
+                    "\t" + "Table: "+booking.getTableBooked()+" \n " +
                     "\t" + "Customer Name: "+booking.getCustomerName());
 
             for(Purchase purchase : booking.getPurchases()){

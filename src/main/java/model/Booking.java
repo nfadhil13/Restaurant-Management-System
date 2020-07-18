@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,24 +8,27 @@ public class Booking {
     private int bookingNumber;
     private String customerName;
     private int numberOfPplBooking;
-    private int tableNumberBooked;
-    private int bookingTime;
+    private Table tableBooked;
+    private LocalDateTime bookingTime;
     private int amountOfTimeBooking;
     private List<Purchase> purchases = new ArrayList<>();
 
-    public Booking(int bookingNumber, String customerName, int numberOfPplBooking, int tableNumberBooked, int bookingTime, int amountOfTimeBooking) {
+    public Booking() {
+    }
+
+    public Booking(int bookingNumber, String customerName, int numberOfPplBooking, Table tableNumberBooked, LocalDateTime bookingTime, int amountOfTimeBooking) {
         this.bookingNumber = bookingNumber;
         this.customerName = customerName;
         this.numberOfPplBooking = numberOfPplBooking;
-        this.tableNumberBooked = tableNumberBooked;
+        this.tableBooked = tableNumberBooked;
         this.bookingTime = bookingTime;
         this.amountOfTimeBooking = amountOfTimeBooking;
     }
 
-    public Booking(String customerName, int numberOfPplBooking, int tableNumberBooked, int bookingTime, int amountOfTimeBooking) {
+    public Booking(String customerName, int numberOfPplBooking, Table tableNumberBooked, LocalDateTime bookingTime, int amountOfTimeBooking) {
         this.customerName = customerName;
         this.numberOfPplBooking = numberOfPplBooking;
-        this.tableNumberBooked = tableNumberBooked;
+        this.tableBooked = tableNumberBooked;
         this.bookingTime = bookingTime;
         this.amountOfTimeBooking = amountOfTimeBooking;
     }
@@ -61,19 +65,19 @@ public class Booking {
         this.numberOfPplBooking = numberOfPplBooking;
     }
 
-    public int getTableNumberBooked() {
-        return tableNumberBooked;
+    public Table getTableBooked() {
+        return tableBooked;
     }
 
-    public void setTableNumberBooked(int tableNumberBooked) {
-        this.tableNumberBooked = tableNumberBooked;
+    public void setTableBooked(Table tableBooked) {
+        this.tableBooked = tableBooked;
     }
 
-    public int getBookingTime() {
+    public LocalDateTime getBookingTime() {
         return bookingTime;
     }
 
-    public void setBookingTime(int bookingTime) {
+    public void setBookingTime(LocalDateTime bookingTime) {
         this.bookingTime = bookingTime;
     }
 
