@@ -64,7 +64,7 @@ public class BookingTransactionView {
 	}
 	
 	public boolean hasMembership() {
-		System.out.println("Has the customer a membership ?");
+		System.out.println("Does the customer have a membership ?");
 		System.out.println("1. Yes");
 		System.out.println("2. No, don't you dare");
 		
