@@ -50,7 +50,9 @@ public class BookingTransactionView {
 				if(transaction.getTotalPayment() != purchase.getItemPurchased().getItemPrice()
 						*purchase.getQuantity()) {
 					System.out.println("   " + "Customer has a membership and get 20 % discount yaay.");
-					System.out.println("   " + "Cost : " + transaction.getTotalPayment());
+					System.out.println("   " + "Cost : " + (purchase.getItemPurchased().getItemPrice()
+							*purchase.getQuantity() - (purchase.getItemPurchased().getItemPrice()
+							*purchase.getQuantity() * 20 /100)));
 				}
 				else {
 					System.out.println("   " + "Cost : " + purchase.getItemPurchased().getItemPrice()
