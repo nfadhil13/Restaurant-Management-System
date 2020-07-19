@@ -10,6 +10,7 @@ import view.BookingTableView;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class BookingTableController {
@@ -121,10 +122,12 @@ public class BookingTableController {
         List<Booking> availableBooking = new ArrayList<>();
         List<Table> tables =  tableRepo.getAllTable();
         int i = RestauranConstant.RESTAURANT_START_HOUR;
+        Iterator<Booking> bookingIterator = bookedByDay.iterator();
         for(; i<RestauranConstant.RESTAURANT_END_HOUR;i++){
             LocalDateTime currentItteratorTime =searchDate.atTime(i,0);
-            if(!bookedByDay.isEmpty()){
-                for(Booking booking : bookedByDay){
+            if(bookingIterator.hasNext()){
+                while(bookingIterator.hasNext()){
+                    Booking booking = bookingIterator.next();
                     if(booking.getBookingTime().isEqual(currentItteratorTime)){
                         for(Table table: tables){
                             if(booking.getTableBooked().getTableNumber() != table.getTableNumber()){
@@ -134,7 +137,7 @@ public class BookingTableController {
                                 availableBooking.add(tempBooking);
                             }
                         }
-                        bookedByDay.remove(booking);
+                        bookingIterator.remove();
                     }else{
                         for(Table table : tables){
                             if(table.getNumberOfSeats()>= numberOfPeopleBook){

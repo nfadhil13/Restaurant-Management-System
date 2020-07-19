@@ -58,7 +58,7 @@ public class WelcomeMenuController implements Serializable {
 			case 4 :
 				Booking booking = bookingController.addBooking();
 //				int isPurchase = welcomeMenuView.isPurchaseFood();
-				if(!booking.equals(null)) {
+				if(booking!=null) {
 					bookingTransactionController.addTransaction(booking);
 				}
 				break;
