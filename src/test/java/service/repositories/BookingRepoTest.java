@@ -9,10 +9,15 @@ import static org.junit.Assert.assertEquals;
 
 public class BookingRepoTest {
 
-    BookingRepo bookingRepo;
+    private BookingRepo bookingRepo;
 
-    Booking booking1,booking2,booking3,booking4,newBook;
+    private Booking booking1,booking2,booking3,booking4,newBook;
 
+
+    /*
+    KARENA PENGGUNAAN SINGLETON , LAKUKAN TEST SATU PERSATU
+    PENGUNAAN SINGLETON DISADARI KELOMPOK KAMI AKAN BURUK UNTUK MELAKUKAN TESTING
+     */
 
     @Before
     public void setup(){

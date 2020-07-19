@@ -6,6 +6,8 @@ public class Purchase {
     private String itemPurchased;
     private int quantity;
 
+    public Purchase() {
+    }
 
     public Purchase(String itemPurchased, int quantity) {
         this.itemPurchased = itemPurchased;
