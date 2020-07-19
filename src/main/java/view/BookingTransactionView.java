@@ -53,4 +53,19 @@ public class BookingTransactionView {
 			System.out.println("-------------------------------");
 		}
 	}
+	
+	public boolean hasMembership() {
+		System.out.println("Is the customer a membership ?");
+		System.out.println("1. Yes");
+		System.out.println("2. No");
+		System.out.print("Option : ");
+		Scanner input = new Scanner(System.in);
+		int option = input.nextInt();
+		
+		if(option == 1) {
+			return true;
+		}
+		
+		return false;
+	}
 }

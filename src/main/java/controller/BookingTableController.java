@@ -75,7 +75,7 @@ public class BookingTableController {
                             if(choosenBooking!=0) {
                             	String name = view.enterCustomerName();
                             	Booking booking = availableBookingByDay.get(choosenBooking);
-                            	booking.setBookingNumber(newID);
+                            	booking.setBookingNumber(newID+1);
                             	booking.setCustomerName(name);
                             	booking.setNumberOfPplBooking(numberOfPeopleBook);
                                 bookingRepo.insertBooking(booking);
@@ -89,7 +89,7 @@ public class BookingTableController {
                             if(choosenBooking!=0) {
                             	String name = view.enterCustomerName();
                             	Booking booking = availableBookingByDay.get(choosenBooking);
-                            	booking.setBookingNumber(newID);
+                            	booking.setBookingNumber(newID+1);
                             	booking.setCustomerName(name);
                             	booking.setNumberOfPplBooking(numberOfPeopleBook);
                                 bookingRepo.insertBooking(booking);

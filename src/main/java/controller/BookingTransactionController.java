@@ -71,6 +71,10 @@ public class BookingTransactionController {
                 newID = tempID;
             }
         }
+		if(bookingTransactionView.hasMembership()) {
+			long discount = (totalPayment * 20)/100;
+        	totalPayment -= discount;
+        }
 		Transaction newTransaction = new Transaction(newID+1, totalPayment,
         		LocalDateTime.now(), booking, listPurchase);
 		transactionRepo.insertTransaction(newTransaction);
