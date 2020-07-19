@@ -1,6 +1,7 @@
 package view;
 
 
+import app.constant.RestauranConstant;
 import model.Booking;
 
 import java.time.format.DateTimeFormatter;
@@ -51,6 +52,18 @@ public class BookingTableView {
     public int getBookingMaxPersonInput(){
         System.out.print("Number of People booking: ");
         return new Scanner(System.in).nextInt();
+    }
+
+    public int getBookingHourInput(){
+        int no=1;
+        System.out.println("No" +"\t" +"TIME");
+        for(int i = RestauranConstant.RESTAURANT_START_HOUR ; i<RestauranConstant.RESTAURANT_END_HOUR;i++){
+            System.out.println(no + "\t" + i + ".00");
+            no ++;
+        }
+        System.out.println("0.Cancel");
+        System.out.print("Choose Booking Time : ");
+        return new Scanner(System.in).nextInt()+RestauranConstant.RESTAURANT_START_HOUR-1;
     }
 
     public void printErrorMessage(String message){
