@@ -5,9 +5,6 @@ public class Table {
     private int tableNumber;
     private int numberOfSeats;
 
-    public Table(int tableNumber) {
-        this.tableNumber = tableNumber;
-    }
 
     public Table(int tableNumber, int numberOfSeats) {
         this.tableNumber = tableNumber;

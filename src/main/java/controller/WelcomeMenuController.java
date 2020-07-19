@@ -2,6 +2,7 @@ package controller;
 
 import java.io.Serializable;
 
+import model.Booking;
 import model.FoodDrink;
 import model.Purchase;
 import model.Table;
@@ -9,11 +10,21 @@ import view.WelcomeMenuView;
 
 
 public class WelcomeMenuController implements Serializable {
-	private BookingTableController bookingController;
+	public Table headTable=null;
+	private int b;
+	private int tableNum=0;
+    private Booking firstBooking=null;
+    private int bookingNum=0;
+    private FoodDrink firstFdItem=null;
+    private int fdMenuNum=0;
+	private Purchase firstPurchase = null;
+    private int purchase=0;
+    private BookingTableController bookingController;
     private TableController tableController;
     private FoodDrinkController foodDrinkController;
     private WelcomeMenuView welcomeMenuView;
     private BookingPurchaseController bookingPurchaseController;
+    private BookingTransactionController bookingTransactionController;
 
 
 	public WelcomeMenuController() {
@@ -23,6 +34,7 @@ public class WelcomeMenuController implements Serializable {
 		this.foodDrinkController = new FoodDrinkController();
 		this.welcomeMenuView = new WelcomeMenuView();
 		bookingPurchaseController = new BookingPurchaseController();
+		bookingTransactionController = new BookingTransactionController();
 	}
 
 	/**
@@ -44,7 +56,11 @@ public class WelcomeMenuController implements Serializable {
 				deleteTable(promptForInt("Enter Table Number to delete"));
 				break;*/
 			case 4 :
-				bookingController.addBooking();
+				Booking booking = bookingController.addBooking();
+//				int isPurchase = welcomeMenuView.isPurchaseFood();
+				if(!booking.equals(null)) {
+					bookingTransactionController.addTransaction(booking);
+				}
 				break;
 			case 5:
 				bookingController.printBookings();
@@ -62,17 +78,20 @@ public class WelcomeMenuController implements Serializable {
 				foodDrinkController.deleteFoodDrink();
 				break;
 			case 10:
-				bookingPurchaseController.addPurchase();
+				bookingTransactionController.printAllTransactions();
 				break;
-			case 11:
-				bookingPurchaseController.readAllPurchases();
-				break;
-			case 12:
-				bookingPurchaseController.deletePurchase();
-				break;
-			case 13:
+//			case 10:
+//				bookingPurchaseController.addPurchase();
+//				break;
+//			case 11:
+//				bookingPurchaseController.readAllPurchases();
+//				break;
+//			case 12:
+//				bookingPurchaseController.deletePurchase();
+//				break;
+//			case 13:
 //				viewAllTablesAndBookings();
-				break;
+//				break;
 //			case 14:
 //				try {
 //					save(this);

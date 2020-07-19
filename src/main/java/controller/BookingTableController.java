@@ -25,7 +25,7 @@ public class BookingTableController {
     }
 
 
-    public void addBooking(){
+    public Booking addBooking(){
         //Membuat List Untuk pembanding booking yang sudah terisi
         List<Booking> bookedByDay = new ArrayList<>();
 
@@ -34,6 +34,13 @@ public class BookingTableController {
 
         //Mendapatkan input hari dari view
         int choosenDay = view.getBookingDayInput();
+        int newID=0;
+        for(Booking booking : bookingRepo.getAllBooking()) {
+        	int tempID = booking.getBookingNumber();
+            if(tempID>newID){
+                newID = tempID;
+            }
+        }
 
         //Bila input 0 berarti cancel
         if(choosenDay!=0){
@@ -64,15 +71,29 @@ public class BookingTableController {
                         //Bila ada booking berdasarkan jam maka tampilkan
                         if(!availableBookingByHour.isEmpty()){
                             int choosenBooking = view.chooseAvailableBook(availableBookingByHour);
-                            if(choosenBooking!=0)
-                                bookingRepo.insertBooking(availableBookingByDay.get(choosenBooking));
+                            if(choosenBooking!=0) {
+                            	String name = view.enterCustomerName();
+                            	Booking booking = availableBookingByDay.get(choosenBooking);
+                            	booking.setBookingNumber(newID);
+                            	booking.setCustomerName(name);
+                            	booking.setNumberOfPplBooking(numberOfPeopleBook);
+                                bookingRepo.insertBooking(booking);
+                                return availableBookingByDay.get(choosenBooking);
+                            }
                         }else{
                             //Bila tidak ada maka tampilkan alternatif
                             view.printErrorMessage("NO AVAILABLE BOOKING WITH SUCH CONDITION");
                             view.printErrorMessage("THIS IS ONLY AVAILBLE BOOKING IN THIS DAY");
                             int choosenBooking = view.chooseAvailableBook(availableBookingByDay);
-                            if(choosenBooking!=0)
-                                bookingRepo.insertBooking(availableBookingByDay.get(choosenBooking));
+                            if(choosenBooking!=0) {
+                            	String name = view.enterCustomerName();
+                            	Booking booking = availableBookingByDay.get(choosenBooking);
+                            	booking.setBookingNumber(newID);
+                            	booking.setCustomerName(name);
+                            	booking.setNumberOfPplBooking(numberOfPeopleBook);
+                                bookingRepo.insertBooking(booking);
+                                return availableBookingByDay.get(choosenBooking);
+                        	}
                         }
 
                     }
@@ -81,21 +102,11 @@ public class BookingTableController {
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
+		return null;
 
     }
 
-    public List<Booking> filerBookingByHour(List<Booking>bookings , int hour){
+    private List<Booking> filerBookingByHour(List<Booking>bookings ,int hour){
         List<Booking> bookedByDay = new ArrayList<>();
         for (Booking booking : bookings) {
             if (booking.getBookingTime().getHour() == hour) {
@@ -105,7 +116,7 @@ public class BookingTableController {
         return bookedByDay;
     }
 
-    public List<Booking> getAvailableBookInADay(List<Booking> bookedByDay , LocalDate searchDate,
+    private List<Booking> getAvailableBookInADay(List<Booking> bookedByDay , LocalDate searchDate,
                         int numberOfPeopleBook){
         List<Booking> availableBooking = new ArrayList<>();
         List<Table> tables =  tableRepo.getAllTable();
@@ -150,7 +161,7 @@ public class BookingTableController {
     }
 
 
-    public List<Booking> filterBookingByDay(LocalDate searchDate){
+    private List<Booking> filterBookingByDay(LocalDate searchDate){
         List<Booking> bookedByDay = new ArrayList<>();
         for(Booking booking : bookingRepo.getAllBooking()){
             if(booking.getBookingTime().toLocalDate().atStartOfDay().isEqual(searchDate.atStartOfDay())){
@@ -166,7 +177,7 @@ public class BookingTableController {
     }
 
     public void deleteBooking(){
-        bookingRepo.deleteBooking(bookingRepo.getBookingById(view.deleteBooking()));
+        bookingRepo.deleteBooking(view.deleteBooking());
     }
 
 

@@ -27,19 +27,17 @@ public class BookingRepo implements BookingDao {
     }
 
     @Override
-    public void deleteBooking(Booking booking) {
-        bookingList.remove(booking);
+    public void deleteBooking(int id) {
+        bookingList.remove(id);
     }
 
     @Override
-    public void updateBooking(Booking booking) {
-        for(Booking theBooking : bookingList){
-            if(theBooking.getBookingNumber() == booking.getBookingNumber()){
-                bookingList.remove(theBooking);
-                break;
-            }
-        }
-        bookingList.add(booking);
+    public void updateBooking(int id, Booking booking) {
+//        for(Booking tempBooking : bookingList){
+//            if(tempBooking.getBookingNumber() == id){
+//                bookingList.remove(tempBooking);
+//            }
+//      }
     }
 
     @Override

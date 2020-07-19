@@ -21,11 +21,12 @@ public class WelcomeMenuView {
 		System.out.println("  8) View Food/Drink ordered");
 		System.out.println("  9) Delete Food/Drink ordered");
 		System.out.println("---------");
-		System.out.println("Purchase Menu");
-		System.out.println("---------");
-		System.out.println("  10) Add a Purchase");
-	    System.out.println("  11) View All Purchases");
-	    System.out.println("  12) Delete Purchase");
+		System.out.println("  10) Print All Transactions");
+//		System.out.println("Purchase Menu");
+//		System.out.println("---------");
+//		System.out.println("  10) Add a Purchase");
+//	    System.out.println("  11) View All Purchases");
+//	    System.out.println("  12) Delete Purchase");
 //	    System.out.println("  13) View All Tables & Bookings");
 //	    System.out.println("  14) Save to XML");
 //	    System.out.println("  15) Reset");
@@ -81,4 +82,11 @@ public class WelcomeMenuView {
 		int quantity= input.nextInt();
 		return quantity;
 	}
+	
+//	public int isPurchaseFood() {
+//		Scanner input = new Scanner(System.in);
+//		System.out.print("A");
+//		int quantity= input.nextInt();
+//		return quantity;
+//	}
 }

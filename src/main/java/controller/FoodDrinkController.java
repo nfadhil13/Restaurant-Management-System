@@ -31,6 +31,10 @@ public class FoodDrinkController {
     public void printFoodDrink(){
         view.printFoodDrink(repo.getAllFoodDrink());
     }
+    
+//    public FoodDrink getFoodDrinkById(int id) {
+//    	return repo.getFoodDrinkById(id);
+//    }
 
     public void deleteFoodDrink(){
         repo.deleteFoodDrink(view.deleteFoodDrink());

@@ -10,38 +10,27 @@ public class Booking {
     private int numberOfPplBooking;
     private Table tableBooked;
     private LocalDateTime bookingTime;
-    private int amountOfTimeBooking;
-    private List<Purchase> purchases = new ArrayList<>();
 
     public Booking() {
     }
 
-
-    public Booking(int bookingNumber, String customerName, int numberOfPplBooking, Table tableNumberBooked, LocalDateTime bookingTime, int amountOfTimeBooking) {
+    public Booking(int bookingNumber, String customerName, int numberOfPplBooking, 
+    		Table tableNumberBooked, LocalDateTime bookingTime) {
         this.bookingNumber = bookingNumber;
         this.customerName = customerName;
         this.numberOfPplBooking = numberOfPplBooking;
         this.tableBooked = tableNumberBooked;
         this.bookingTime = bookingTime;
-        this.amountOfTimeBooking = amountOfTimeBooking;
     }
 
-    public Booking(String customerName, int numberOfPplBooking, Table tableNumberBooked, LocalDateTime bookingTime, int amountOfTimeBooking) {
+    public Booking(String customerName, int numberOfPplBooking, 
+    		Table tableNumberBooked, LocalDateTime bookingTime) {
         this.customerName = customerName;
         this.numberOfPplBooking = numberOfPplBooking;
         this.tableBooked = tableNumberBooked;
         this.bookingTime = bookingTime;
-        this.amountOfTimeBooking = amountOfTimeBooking;
     }
-
-    public List<Purchase> getPurchases() {
-        return purchases;
-    }
-
-    public void setPurchases(List<Purchase> purchases) {
-        this.purchases = purchases;
-    }
-
+    
     public int getBookingNumber() {
         return bookingNumber;
     }
@@ -80,13 +69,5 @@ public class Booking {
 
     public void setBookingTime(LocalDateTime bookingTime) {
         this.bookingTime = bookingTime;
-    }
-
-    public int getAmountOfTimeBooking() {
-        return amountOfTimeBooking;
-    }
-
-    public void setAmountOfTimeBooking(int amountOfTimeBooking) {
-        this.amountOfTimeBooking = amountOfTimeBooking;
     }
 }

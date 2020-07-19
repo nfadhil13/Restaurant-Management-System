@@ -41,10 +41,10 @@ public class BookingTableView {
     public int getBookingDayInput(){
         System.out.println("Time of Booking: \n" +
                 "1.Tomorrow(D+1)\n" +
-                "2.overmorrow(D+2)\n" +
-                "3.D+3\n" +
+                "2.Day after tomorrow(D+2)\n" +
+                "3.Three days from now(D+3)\n" +
                 "0.cancel \n" +
-                "( BOOKING IS ONLY AVAILABLE FOR THOESE OPTION)");
+                "( BOOKING IS ONLY AVAILABLE FOR THESE OPTIONS)");
         System.out.print("\n Choose Your Booking Day :");
         return new Scanner(System.in).nextInt();
     }
@@ -62,6 +62,7 @@ public class BookingTableView {
             no ++;
         }
         System.out.println("0.Cancel");
+        System.out.println("(ALL BOOKING ARE ONLY FOR ONE HOUR, STARTS FROM BOOKING TIME)");
         System.out.print("Choose Booking Time : ");
         return new Scanner(System.in).nextInt()+RestauranConstant.RESTAURANT_START_HOUR-1;
     }
@@ -77,8 +78,7 @@ public class BookingTableView {
                     "\t" + "Customer Name: " + booking.getCustomerName() + " \n " +
                     "\t" + "Number of People Booking: " + booking.getNumberOfPplBooking() + " \n " +
                     "\t" + "Table Number Booked: " + booking.getTableBooked().getTableNumber() + " \n " +
-                    "\t" + "Booking Time: " + booking.getBookingTime().format(DateTimeFormatter.ofPattern("dd-MMM-yy hh:mm")) + " \n " +
-                    "\t" + "The Amount of time (in hours) the booking is for: " + booking.getAmountOfTimeBooking());
+                    "\t" + "Booking Time: " + booking.getBookingTime().format(DateTimeFormatter.ofPattern("dd-MMM-yy hh:mm")));
         }
     }
 
@@ -93,14 +93,20 @@ public class BookingTableView {
                 .getBookingTime().format(DateTimeFormatter.ofPattern("dd-MMM-yy")));
         System.out.println("NO" + "\t" + "TABLE_NUMBER" + "\t" + "TIME" + "\t" + "Maximum Number Of seat");
         for (Booking booking : availableBooking) {
-            System.out.println(i + "\t" + "\t"
-                    + booking.getTableBooked().getTableNumber() + "\t" + "\t" + "\t"
-                    + booking.getBookingTime().format(DateTimeFormatter.ofPattern("hh:mm")) + "\t" + "\t" + "\t"
+            System.out.println(i + "\t"
+                    + booking.getTableBooked().getTableNumber() + "\t" + "\t"
+                    + booking.getBookingTime().format(DateTimeFormatter.ofPattern("hh:mm")) + "\t" 
                     + booking.getTableBooked().getNumberOfSeats());
             i++;
         }
         System.out.println("0.cancel");
-        System.out.print("Choose Booking yang kamu mau tapi jangan bacot: ");
+        System.out.print("Choose Table : ");
         return new Scanner(System.in).nextInt();
+    }
+    
+    public String enterCustomerName() {
+    	Scanner input = new Scanner(System.in);
+    	System.out.print("Enter the name of the customer : ");
+    	return input.nextLine();
     }
 }

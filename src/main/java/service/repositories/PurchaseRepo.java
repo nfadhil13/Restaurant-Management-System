@@ -27,8 +27,8 @@ public class PurchaseRepo implements PurchaseDao {
     }
 
     @Override
-    public void deletePurchase(Purchase purchase) {
-        purchases.remove(purchase);
+    public void deletePurchase(int id) {
+        purchases.remove(id);
     }
 
     @Override
