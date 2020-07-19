@@ -16,6 +16,7 @@ public class Booking {
     public Booking() {
     }
 
+
     public Booking(int bookingNumber, String customerName, int numberOfPplBooking, Table tableNumberBooked, LocalDateTime bookingTime, int amountOfTimeBooking) {
         this.bookingNumber = bookingNumber;
         this.customerName = customerName;

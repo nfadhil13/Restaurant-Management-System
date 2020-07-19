@@ -3,7 +3,6 @@ package view;
 import model.Table;
 
 import java.util.List;
-import java.util.Observable;
 import java.util.Scanner;
 
 public class TableView {

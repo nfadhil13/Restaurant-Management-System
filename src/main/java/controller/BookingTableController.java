@@ -95,7 +95,7 @@ public class BookingTableController {
 
     }
 
-    private List<Booking> filerBookingByHour(List<Booking>bookings ,int hour){
+    public List<Booking> filerBookingByHour(List<Booking>bookings , int hour){
         List<Booking> bookedByDay = new ArrayList<>();
         for (Booking booking : bookings) {
             if (booking.getBookingTime().getHour() == hour) {
@@ -105,7 +105,7 @@ public class BookingTableController {
         return bookedByDay;
     }
 
-    private List<Booking> getAvailableBookInADay(List<Booking> bookedByDay , LocalDate searchDate,
+    public List<Booking> getAvailableBookInADay(List<Booking> bookedByDay , LocalDate searchDate,
                         int numberOfPeopleBook){
         List<Booking> availableBooking = new ArrayList<>();
         List<Table> tables =  tableRepo.getAllTable();
@@ -150,7 +150,7 @@ public class BookingTableController {
     }
 
 
-    private List<Booking> filterBookingByDay(LocalDate searchDate){
+    public List<Booking> filterBookingByDay(LocalDate searchDate){
         List<Booking> bookedByDay = new ArrayList<>();
         for(Booking booking : bookingRepo.getAllBooking()){
             if(booking.getBookingTime().toLocalDate().atStartOfDay().isEqual(searchDate.atStartOfDay())){
@@ -166,7 +166,7 @@ public class BookingTableController {
     }
 
     public void deleteBooking(){
-        bookingRepo.deleteBooking(view.deleteBooking());
+        bookingRepo.deleteBooking(bookingRepo.getBookingById(view.deleteBooking()));
     }
 
 

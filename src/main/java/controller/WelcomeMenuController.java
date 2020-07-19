@@ -2,7 +2,6 @@ package controller;
 
 import java.io.Serializable;
 
-import model.Booking;
 import model.FoodDrink;
 import model.Purchase;
 import model.Table;
@@ -10,16 +9,7 @@ import view.WelcomeMenuView;
 
 
 public class WelcomeMenuController implements Serializable {
-	public Table headTable=null;
-	private int b;
-	private int tableNum=0;
-    private Booking firstBooking=null;
-    private int bookingNum=0;
-    private FoodDrink firstFdItem=null;
-    private int fdMenuNum=0;
-	private Purchase firstPurchase = null;
-    private int purchase=0;
-    private BookingTableController bookingController;
+	private BookingTableController bookingController;
     private TableController tableController;
     private FoodDrinkController foodDrinkController;
     private WelcomeMenuView welcomeMenuView;

@@ -3,7 +3,6 @@ package service.repositories;
 import model.Table;
 import service.dao.TableDao;
 
-import javax.security.auth.callback.Callback;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class TableRepo implements TableDao {
         return  INSTANCE;
     }
 
-    public TableRepo() {
+    private TableRepo() {
     }
 
     @Override
@@ -35,14 +34,20 @@ public class TableRepo implements TableDao {
     }
 
     @Override
-    public void deleteTable(int id) {
-        tables.remove(id);
+    public void deleteTable(Table table) {
+        tables.remove(table);
     }
 
     @Override
-    public void updateTable(int id, Table table) {
-        tables.add(id,table);
-        tables.remove(id+1);
+    public void updateTable(Table table) {
+        for(Table tempTable : tables){
+            if(table.getTableNumber() == table.getTableNumber()){
+                tables.remove(table);
+                break;
+            }
+        }
+        tables.add(table);
+
     }
 
     @Override
