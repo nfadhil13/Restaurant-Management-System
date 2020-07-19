@@ -26,6 +26,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d2ac9dac-c3ba-40bf-b33b-ebe725c271da" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/BookingTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/BookingTableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/BookingTableView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/BookingTableView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,25 +129,25 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680/323.-768.1360.728@0.0.1280.680" timestamp="1595059248935" />
-    <state width="1237" height="196" key="GridCell.Tab.0.bottom" timestamp="1595085307734">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="357" key="GridCell.Tab.0.bottom" timestamp="1595127315520">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="2" key="GridCell.Tab.0.bottom/0.0.1280.680/323.-768.1360.728@0.0.1280.680" timestamp="1595084883561" />
+    <state width="1237" height="357" key="GridCell.Tab.0.bottom/0.0.1280.680/323.-768.1360.728@0.0.1280.680" timestamp="1595127315520" />
     <state width="1237" height="196" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595085307734" />
-    <state width="1237" height="196" key="GridCell.Tab.0.center" timestamp="1595085307734">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="357" key="GridCell.Tab.0.center" timestamp="1595127315519">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="2" key="GridCell.Tab.0.center/0.0.1280.680/323.-768.1360.728@0.0.1280.680" timestamp="1595084883560" />
+    <state width="1237" height="357" key="GridCell.Tab.0.center/0.0.1280.680/323.-768.1360.728@0.0.1280.680" timestamp="1595127315519" />
     <state width="1237" height="196" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1595085307734" />
-    <state width="1237" height="196" key="GridCell.Tab.0.left" timestamp="1595085307734">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="357" key="GridCell.Tab.0.left" timestamp="1595127315519">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="2" key="GridCell.Tab.0.left/0.0.1280.680/323.-768.1360.728@0.0.1280.680" timestamp="1595084883560" />
+    <state width="1237" height="357" key="GridCell.Tab.0.left/0.0.1280.680/323.-768.1360.728@0.0.1280.680" timestamp="1595127315519" />
     <state width="1237" height="196" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1595085307734" />
-    <state width="1237" height="196" key="GridCell.Tab.0.right" timestamp="1595085307734">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="357" key="GridCell.Tab.0.right" timestamp="1595127315519">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="2" key="GridCell.Tab.0.right/0.0.1280.680/323.-768.1360.728@0.0.1280.680" timestamp="1595084883560" />
+    <state width="1237" height="357" key="GridCell.Tab.0.right/0.0.1280.680/323.-768.1360.728@0.0.1280.680" timestamp="1595127315519" />
     <state width="1237" height="196" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595085307734" />
     <state width="1237" height="196" key="GridCell.Tab.1.bottom" timestamp="1595085307735">
       <screen x="0" y="0" width="1366" height="728" />
@@ -181,7 +183,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/view/BookingTableView.java</url>
-          <line>11</line>
+          <line>12</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

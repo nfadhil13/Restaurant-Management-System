@@ -27,6 +27,7 @@ public class WelcomeMenuController implements Serializable {
 
 
 	public WelcomeMenuController() {
+		System.out.println("kesini");
 		this.bookingController = new BookingTableController();
 		this.tableController = new TableController();
 		this.foodDrinkController = new FoodDrinkController();
