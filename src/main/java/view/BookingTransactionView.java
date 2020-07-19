@@ -47,10 +47,32 @@ public class BookingTransactionView {
 				System.out.println("   " + "Purchase No : " + purchase.getPurchaseNumber());
 				System.out.println("   " + "Food/Drink : " + purchase.getItemPurchased().getFdMenuItem());
 				System.out.println("   " + "Quantity : " + purchase.getQuantity());
-				System.out.println("   " + "Cost : " + purchase.getItemPurchased().getItemPrice()
-						*purchase.getQuantity());
+				if(transaction.getTotalPayment() != purchase.getItemPurchased().getItemPrice()
+						*purchase.getQuantity()) {
+					System.out.println("   " + "Customer has a membership and get 20 % discount yaay.");
+					System.out.println("   " + "Cost : " + transaction.getTotalPayment());
+				}
+				else {
+					System.out.println("   " + "Cost : " + purchase.getItemPurchased().getItemPrice()
+							*purchase.getQuantity());
+				}
 			}
 			System.out.println("-------------------------------");
 		}
+	}
+	
+	public boolean hasMembership() {
+		System.out.println("Has the customer a membership ?");
+		System.out.println("1. Yes");
+		System.out.println("2. No, don't you dare");
+		
+		Scanner input = new Scanner(System.in);
+		int option = input.nextInt();
+		
+		if(option == 1) {
+			return true;
+		}
+		
+		return false;
 	}
 }
