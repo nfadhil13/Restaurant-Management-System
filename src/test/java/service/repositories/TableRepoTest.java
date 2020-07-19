@@ -10,9 +10,15 @@ import static org.mockito.Mockito.verify;
 public class TableRepoTest {
 
 
-    TableRepo tableRepo;
 
-    Table table1,table2,table3,table4,newTable;
+    /*
+    KARENA PENGGUNAAN SINGLETON , LAKUKAN TEST SATU PERSATU
+    PENGUNAAN SINGLETON DISADARI KELOMPOK KAMI AKAN BURUK UNTUK MELAKUKAN TESTING
+     */
+
+    private TableRepo tableRepo;
+
+    private Table table1,table2,table3,table4,newTable;
 
 
     @Before
@@ -63,8 +69,7 @@ public class TableRepoTest {
     @Test
     public void getAllTable() {
         int oldSize = tableRepo.getAllTable().size();
-        tableRepo.getAllTable();
-        assertEquals(tableRepo.getAllTable().size(),oldSize-1);
+        assertEquals(tableRepo.getAllTable().size(),oldSize);
     }
 
     @Test
