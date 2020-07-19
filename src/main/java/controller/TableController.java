@@ -1,9 +1,7 @@
 package controller;
 
-import model.Booking;
 import model.Table;
 import service.repositories.TableRepo;
-import view.BookingView;
 import view.TableView;
 
 public class TableController {
