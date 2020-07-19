@@ -29,8 +29,8 @@ public class FoodDrinkRepo implements FoodDrinkDao {
     }
 
     @Override
-    public void deleteFoodDrink(int id) {
-        foodDrinkList.remove(id);
+    public void deleteFoodDrink(FoodDrink foodDrink) {
+        foodDrinkList.remove(foodDrink);
     }
 
     @Override

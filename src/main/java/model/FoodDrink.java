@@ -5,6 +5,9 @@ public class FoodDrink {
     private String fdMenuItem;
     private double itemPrice;
 
+    public FoodDrink() {
+    }
+
     public FoodDrink(int foodMenuNumber, String fdMenuItem, double itemPrice) {
         this.foodMenuNumber = foodMenuNumber;
         this.fdMenuItem = fdMenuItem;

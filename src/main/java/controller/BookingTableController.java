@@ -177,7 +177,7 @@ public class BookingTableController {
     }
 
     public void deleteBooking(){
-        bookingRepo.deleteBooking(view.deleteBooking());
+        bookingRepo.deleteBooking(bookingRepo.getBookingById(view.deleteBooking()));
     }
 
 

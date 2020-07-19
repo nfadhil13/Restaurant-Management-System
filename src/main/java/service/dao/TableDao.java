@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface TableDao {
     void insertTable(Table table);
-    void deleteTable(int id);
-    void updateTable(int id , Table table);
+    void deleteTable(Table table);
+    void updateTable(Table table);
     List<Table> getAllTable();
     Table getTableById(int id);
 }

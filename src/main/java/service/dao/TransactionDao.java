@@ -6,7 +6,7 @@ import model.Transaction;
 
 public interface TransactionDao {
 	void insertTransaction(Transaction transaction);
-	void deleteTransaction(int id);
+	void deleteTransaction(Transaction transaction);
 	void updateTransaction(Transaction transaction);
 	List<Transaction> getAllTransaction();
 	Transaction getTransactionById(int id);

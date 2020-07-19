@@ -9,7 +9,10 @@ public class Purchase {
     private int quantity;
     private LocalDateTime purchaseTime;
 
-	public Purchase(FoodDrink itemPurchased, int quantity) {
+    public Purchase() {
+    }
+
+    public Purchase(FoodDrink itemPurchased, int quantity) {
         this.itemPurchased = itemPurchased;
         this.quantity = quantity;
     }

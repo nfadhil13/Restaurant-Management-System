@@ -27,7 +27,7 @@ public class TransactionRepo implements TransactionDao{
 		transactionList.add(transaction);
 	}
 	@Override
-	public void deleteTransaction(int id) {
+	public void deleteTransaction(Transaction id) {
 		transactionList.remove(id);
 	}
 	@Override

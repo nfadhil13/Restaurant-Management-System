@@ -37,6 +37,6 @@ public class FoodDrinkController {
 //    }
 
     public void deleteFoodDrink(){
-        repo.deleteFoodDrink(view.deleteFoodDrink());
+        repo.deleteFoodDrink(repo.getFoodDrinkById(view.deleteFoodDrink()));
     }
 }
